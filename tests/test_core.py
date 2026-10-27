@@ -1,5 +1,6 @@
 import copy
 import math
+import random
 import unittest
 
 from membrane_listen import TWO_PI, Ring, Sensor, record_ring, wrap
@@ -131,7 +132,9 @@ class TestSensorValidation(unittest.TestCase):
 
 class TestReadOnlySensor(unittest.TestCase):
     def snapshot(self, ring):
-        return (copy.deepcopy(ring.__dict__), ring.theta[:], ring.t)
+        state = {k: (v.getstate() if isinstance(v, random.Random)
+                     else copy.deepcopy(v)) for k, v in ring.__dict__.items()}
+        return (state, ring.theta[:], ring.t)
 
     def test_sampling_changes_no_ring_state(self):
         ring = Ring(drive_k=1)

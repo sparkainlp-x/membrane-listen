@@ -2,6 +2,7 @@
 
 import math
 import os
+import tempfile
 import unittest
 
 from membrane_listen import (Ring, Sensor, brain_signals, heart_signal,
@@ -17,6 +18,11 @@ def _first_above(samples, threshold=0.3):
 
 
 class TestListen(unittest.TestCase):
+    def _tmp(self):
+        d = tempfile.TemporaryDirectory()
+        self.addCleanup(d.cleanup)
+        return d.name
+
     def test_sensor_read_only(self):
         ring = Ring(drive_k=1)
         for _ in range(200):
@@ -37,7 +43,7 @@ class TestListen(unittest.TestCase):
 
     def test_wave_wav_round_trip(self):
         _, _, readings = record_ring(drive_k=1, steps=8000)
-        path = "/tmp/listen_test.wav"
+        path = os.path.join(self._tmp(), "listen_test.wav")
         n = write_wav_mono(path, [r["signal"] for r in readings])
         ch, rate, frames = read_wav(path)
         self.assertEqual((ch, rate, frames), (1, 8000, 8000))
@@ -66,7 +72,7 @@ class TestListen(unittest.TestCase):
         self.assertIsNotNone(fr)
         # Right hears it 3440 samples (0.43 s) after left.
         self.assertAlmostEqual(fr - fl, 3440, delta=200)
-        path = "/tmp/listen_brain_test.wav"
+        path = os.path.join(self._tmp(), "listen_brain_test.wav")
         n = write_wav_stereo(path, left, right)
         ch, rate, frames = read_wav(path)
         self.assertEqual((ch, rate, frames), (2, 8000, n))

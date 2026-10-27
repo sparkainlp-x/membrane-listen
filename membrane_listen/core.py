@@ -82,7 +82,14 @@ class Ring:
 
 # ---------------------------------------------------------------- sensor
 class Sensor:
-    """Passive, read-only vibration sensor (propulsion v0.2.0 logic)."""
+    """Passive, read-only vibration sensor (propulsion v0.2.0 logic).
+
+    ``omega`` is the phase velocity between this reading and the previous
+    one, wrapped into (-pi, pi] per step, so it is only meaningful while
+    |omega| * dt < pi. It is NaN for the first reading (no history) and
+    whenever no time has passed; the supplied code reported 0.0 there,
+    which cannot be told apart from a measured zero.
+    """
 
     def __init__(self, ring, position=0.0, window=2):
         if not math.isfinite(position):
@@ -113,10 +120,11 @@ class Sensor:
                                math.fsum(math.sin(x) for x in local)) \
             / (2 * self.window + 1)
         if self._prev_phase is None:
-            omega = 0.0
+            omega = float("nan")  # no history yet (supplied code said 0.0)
         else:
             dt = self.ring.t - self._prev_t
-            omega = wrap(phase - self._prev_phase) / dt if dt else 0.0
+            omega = (wrap(phase - self._prev_phase) / dt if dt > 0
+                     else float("nan"))
         reading = {"t": self.ring.t, "phase": phase, "omega": omega,
                    "gradient": gradient, "k_est": gradient * n / TWO_PI,
                    "coherence": coherence,

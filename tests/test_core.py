@@ -182,5 +182,27 @@ class TestRecordRing(unittest.TestCase):
         self.assertEqual(readings, [])
 
 
+class TestOmegaHistory(unittest.TestCase):
+    def test_first_reading_has_no_omega(self):
+        ring = Ring()
+        s = Sensor(ring, position=3.0)
+        self.assertTrue(math.isnan(s.sample()["omega"]))
+        ring.step()
+        self.assertTrue(math.isfinite(s.sample()["omega"]))
+
+    def test_no_elapsed_time_gives_nan_not_zero(self):
+        ring = Ring()
+        s = Sensor(ring, position=3.0)
+        s.sample()
+        self.assertTrue(math.isnan(s.sample()["omega"]))
+
+    def test_locked_omega_is_minus_the_drive_frequency(self):
+        for k in (1, -1, 2):
+            _, _, rd = record_ring(k, steps=300)
+            self.assertAlmostEqual(rd[-1]["omega"], -1.0, places=3)
+        _, _, rd = record_ring(1, steps=300)
+        self.assertTrue(math.isnan(rd[0]["omega"]))
+
+
 if __name__ == "__main__":
     unittest.main()

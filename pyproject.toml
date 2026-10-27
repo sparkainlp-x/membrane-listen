@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "membrane-listen"
+version = "0.1.0"
+description = "SYNTHETIC sonification of a phase-oscillator membrane: tones and pulse sounds from simulated phase. Not a recording or a medical model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Jean-François Brisson" }]
+keywords = ["sonification", "toy-model", "synthetic", "reproducible-research"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+]
+# Runtime is the standard library only.
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/sparkainlp-x/membrane-listen"
+
+[tool.setuptools]
+packages = ["membrane_listen"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

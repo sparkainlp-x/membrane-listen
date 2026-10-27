@@ -1,4 +1,4 @@
-"""Tests for membrane-listen. Run: python tests.py"""
+"""Tests for membrane-listen. Run: python -m unittest"""
 
 import math
 import os

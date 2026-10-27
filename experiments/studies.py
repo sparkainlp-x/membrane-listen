@@ -27,25 +27,35 @@ def _pitch_errors(ring, true_hz):
     ff = est.peak_frequency_hz([r["signal"] for r in rd])
     pv_err = abs(finite_or(pv, 0.0) - true_hz) / true_hz
     ff_err = abs(finite_or(ff, 0.0) - true_hz) / true_hz
-    return pv_err, ff_err, ring.wave_order()
+    # Amendment A1 (diagnostic only; it uses the true drive frequency):
+    # unwrap each step around the expected step -Omega dt, which removes
+    # step aliasing from the sum.
+    expect = -ring.drive_omega * ring.dt
+    phases = [r["phase"] for r in rd]
+    drift = math.fsum(wrap(b - a - expect) for a, b in zip(phases, phases[1:]))
+    om_aided = expect / ring.dt + drift / (ring.dt * (len(phases) - 1))
+    aided_err = abs(est.omega_to_hz(om_aided) - true_hz) / true_hz
+    return pv_err, ff_err, ring.wave_order(), aided_err
 
 
 def study_a(seed):
     out = {}
     for om in OMEGAS:
         ring = Ring(seed=seed, drive_omega=om, drive_amp=1.5 * max(1.0, om))
-        pv, ff, wo = _pitch_errors(ring, est.omega_to_hz(om))
+        pv, ff, wo, aided = _pitch_errors(ring, est.omega_to_hz(om))
         k = f"A/om{tok(om)}"
         out[f"{k}/pv_relerr"], out[f"{k}/fft_relerr"] = pv, ff
         out[f"{k}/wave_order"] = wo
+        out[f"{k}/pv_aided_relerr"] = aided
     for n in RING_SIZES:
-        pv, ff, wo = _pitch_errors(Ring(seed=seed, n=n), HZ_1)
+        pv, ff, wo, _ = _pitch_errors(Ring(seed=seed, n=n), HZ_1)
         k = f"A/n{n}"
         out[f"{k}/pv_relerr"], out[f"{k}/fft_relerr"] = pv, ff
         out[f"{k}/wave_order"] = wo
     for sg in PITCH_SIGMAS:
-        pv, ff, wo = _pitch_errors(Ring(seed=seed, noise=sg), HZ_1)
+        pv, ff, wo, aided = _pitch_errors(Ring(seed=seed, noise=sg), HZ_1)
         k = f"A/sig{tok(sg)}"
+        out[f"{k}/pv_aided_relerr"] = aided
         out[f"{k}/pv_relerr"], out[f"{k}/fft_relerr"] = pv, ff
         out[f"{k}/diff_fft_minus_pv"] = ff - pv
         out[f"{k}/wave_order"] = wo
@@ -145,10 +155,18 @@ def study_c(seed):
         out[f"C/{name}/coherence"] = mean(r["coherence"] for r in rd)
         out[f"C/{name}/rms"] = math.sqrt(mean(r["signal"] ** 2 for r in rd))
         out[f"C/{name}/wave_order"] = ring.wave_order()
+        if name == "undriven_coupled":  # Amendment A1 (diagnostic)
+            w = round(math.fsum(wrap(ring.theta[(i + 1) % ring.n]
+                                     - ring.theta[i])
+                                for i in range(ring.n)) / TWO_PI)
+            out["C/undriven_coupled/winding0"] = float(w == 0)
+            out["C/undriven_coupled/winding_plus1"] = float(w == 1)
+            out["C/undriven_coupled/winding_other"] = float(w not in (0, 1))
     return out
 
 
-def study_d(seed):
+def _doppler(seed, prefix, noise):
+    """Moving-sensor rows for one noise level (k = +1 and -1)."""
     out = {}
     v_frozen = 1.0 * 64 / TWO_PI  # nodes per time unit, times k below
     abs_err = {}
@@ -157,7 +175,7 @@ def study_d(seed):
         speeds = [(f"{tok(v)}", v) for v in SPEEDS]
         speeds.append(("frozen", v_frozen * k))
         speeds.append(("v20", FAST_SPEED * k))
-        ring = Ring(seed=seed, drive_k=k)
+        ring = Ring(seed=seed, drive_k=k, noise=noise)
         sensors = []
         for _, v in speeds:
             s = Sensor(ring, position=SENSOR_POS)
@@ -172,14 +190,20 @@ def study_d(seed):
             if name == "v20":
                 hz.setdefault("v20_want", []).append(est.omega_to_hz(want))
     for name in abs_err:
-        out[f"D1/{'v' + name if name[0] in '-0123456789' else name}/abs_err"] = \
-            mean(abs_err[name])
-    out["D1/low_speeds/abs_err"] = mean(
+        label = "v" + name if name[0] in "-0123456789" else name
+        out[f"{prefix}/{label}/abs_err"] = mean(abs_err[name])
+    out[f"{prefix}/low_speeds/abs_err"] = mean(
         v for name, vals in abs_err.items()
         if name not in ("frozen", "v20") for v in vals)
-    out["D1/frozen/hz"] = mean(hz["frozen"])
-    out["D1/v20/hz"] = mean(hz["v20"])
-    out["D1/v20/hz_want"] = mean(hz["v20_want"])
+    out[f"{prefix}/frozen/hz"] = mean(hz["frozen"])
+    out[f"{prefix}/v20/hz"] = mean(hz["v20"])
+    out[f"{prefix}/v20/hz_want"] = mean(hz["v20_want"])
+    return out
+
+
+def study_d(seed):
+    out = _doppler(seed, "D1", 0.0)
+    out.update(_doppler(seed, "D1n", 0.5))  # Amendment A1 (exploratory)
     # D2: torus, three sensors
     oks, gx_by = [], {}
     for kx in (1, -1):

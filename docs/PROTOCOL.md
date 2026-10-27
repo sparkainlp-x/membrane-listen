@@ -214,4 +214,24 @@ reported with CIs, no p-values.
 
 ## Amendments
 
-(none yet)
+### A1 (before the confirmation run; added after looking at DEV results)
+
+The development run (200 seeds) was looked at before this amendment. Two
+pre-registered hypotheses failed there (H5 and H14) and are NOT changed:
+they stay in the confirmation family exactly as written above. Only
+exploratory rows were added, to explain behaviour seen in DEV, with no
+new hypotheses and no change to the Holm family:
+
+1. `A/.../pv_aided_relerr`: the pv estimator with each step unwrapped
+   around the expected step -Omega dt. It uses the true drive frequency
+   and is a diagnostic, not an estimator anyone could use. It separates
+   step aliasing (a measurement problem) from real phase slips.
+2. `C/undriven_coupled/winding0`, `winding_plus1`, `winding_other`: the
+   fraction of undriven coupled rings that relax to winding number 0, +1
+   or another value (the winding number of the final phase profile). In
+   DEV the undriven ring had wave-order well above zero; a ring that
+   relaxes to a twisted state with winding +1 matches the k = +1 profile
+   in space, which is a candidate explanation.
+3. `D1n/...`: the moving-sensor study repeated at noise 0.5. The noise-free
+   D1 numbers are close to exact because the locked state is exactly
+   linear in space; D1n shows whether the agreement survives noise.

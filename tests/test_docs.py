@@ -32,11 +32,13 @@ class TestMetadata(unittest.TestCase):
         self.assertIn('version = "0.1.0"', read("pyproject.toml"))
         self.assertIn("version: 0.1.0", read("CITATION.cff"))
         self.assertEqual(json.loads(read(".zenodo.json"))["version"], "0.1.0")
-        self.assertIn("## 0.1.0 (prepared", read("CHANGELOG.md"))
-        self.assertIn("no release, no DOI", read("README.md").replace("\n", " "))
+        self.assertIn("## 0.1.0 (2026-10-27)", read("CHANGELOG.md"))
+        self.assertIn("released on GitHub on 2026-10-27",
+                      read("README.md").replace("\n", " "))
         cff = read("CITATION.cff")
-        self.assertNotIn("doi:", cff.lower())
-        self.assertNotIn("date-released", cff)
+        self.assertIn("date-released: 2026-10-27", cff)
+        self.assertEqual(json.loads(read(".zenodo.json"))["publication_date"],
+                         "2026-10-27")
 
     def test_sole_author_with_orcid_and_licence(self):
         z = json.loads(read(".zenodo.json"))

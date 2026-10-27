@@ -124,8 +124,7 @@ takes a few minutes on 8 cores.
 
 ## Lineage
 
-The ring dynamics and the passive sensor come from the author's earlier
-toy membrane-propulsion (a private repository at the time of writing;
-nothing from it is needed to run this one). This repository starts from
+The oscillator dynamics follow the sparkainlp-x membrane lineage;
+nothing outside this repository is needed to run it. This repository starts from
 the supplied membrane-listen package, committed unchanged as its first
 commit, and DESIGN.md lists every change.

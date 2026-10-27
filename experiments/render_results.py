@@ -75,10 +75,11 @@ def agreement(dev, conf):
 def study_a(r):
     rows = r["rows"]
     t1 = table(["Omega", "True Hz", "pv rel. error", "fft rel. error",
-                "wave-order"],
+                "pv aided rel. error (diagnostic)", "wave-order"],
                [[tok(om), f"{om * 0.05 * 8000 / 6.283185307179586:.2f}",
                  ci(rows[f"A/om{tok(om)}/pv_relerr"], 4),
                  ci(rows[f"A/om{tok(om)}/fft_relerr"], 4),
+                 ci(rows[f"A/om{tok(om)}/pv_aided_relerr"], 4),
                  ci(rows[f"A/om{tok(om)}/wave_order"])] for om in OMEGAS])
     t2 = table(["Ring size n", "pv rel. error", "fft rel. error",
                 "wave-order"],
@@ -86,10 +87,12 @@ def study_a(r):
                  ci(rows[f"A/n{n}/fft_relerr"], 4),
                  ci(rows[f"A/n{n}/wave_order"])] for n in RING_SIZES])
     t3 = table(["Noise sigma", "pv rel. error", "fft rel. error",
-                "fft minus pv", "wave-order"],
+                "fft minus pv", "pv aided rel. error (diagnostic)",
+                "wave-order"],
                [[tok(s), ci(rows[f"A/sig{tok(s)}/pv_relerr"], 4),
                  ci(rows[f"A/sig{tok(s)}/fft_relerr"], 4),
                  ci(rows[f"A/sig{tok(s)}/diff_fft_minus_pv"], 4),
+                 ci(rows[f"A/sig{tok(s)}/pv_aided_relerr"], 4),
                  ci(rows[f"A/sig{tok(s)}/wave_order"])] for s in PITCH_SIGMAS])
     return ("### Study A: pitch accuracy\n\n"
             "Drive frequency sweep (n = 64, A = 1.5 max(1, Omega), no noise):\n\n"
@@ -154,8 +157,14 @@ def study_c(r):
                [["Pearson(coherence, audio RMS)", ci(rows["C/corr_coh_rms"])],
                 ["Pearson(coherence, wave-order)",
                  ci(rows["C/corr_coh_wave_order"])]])
+    t4 = table(["Winding number of the final undriven coupled ring",
+                "Fraction of replicates [95 % CI]"],
+               [["0", ci(rows["C/undriven_coupled/winding0"])],
+                ["+1", ci(rows["C/undriven_coupled/winding_plus1"])],
+                ["any other", ci(rows["C/undriven_coupled/winding_other"])]])
     return ("### Study C: coherence, loudness and null controls\n\n" + t1
-            + "\n\nControls:\n\n" + t2 + "\n\n" + t3)
+            + "\n\nControls:\n\n" + t2 + "\n\n" + t3
+            + "\n\nWinding numbers (amendment A1, diagnostic):\n\n" + t4)
 
 
 def study_d(r):
@@ -182,10 +191,20 @@ def study_d(r):
                  "(4 quadrants)", ci(rows["D2/sign_acc"])],
                 ["x-pair gap difference between ky = +1 and ky = -1 (rad)",
                  ci(rows["D2/xpair_ky_leak"], 5)]])
+    t4 = table(["Measure at noise 0.5 (amendment A1, exploratory)",
+                "Mean [95 % CI]"],
+               [["low speeds, mean abs. error (rad per time unit)",
+                 ci(rows["D1n/low_speeds/abs_err"], 5)],
+                ["pitch at the frozen-phase speed (Hz)",
+                 ci(rows["D1n/frozen/hz"], 4)],
+                ["pitch at speed 20 (Hz), measured",
+                 ci(rows["D1n/v20/hz"], 3)],
+                ["pitch at speed 20 (Hz), expected",
+                 ci(rows["D1n/v20/hz_want"], 3)]])
     return ("### Study D: the two open questions\n\n"
             "D1, a moving sensor (Doppler-like shift); a kinematic effect "
             "of the sensor's motion, not a wave in a medium:\n\n"
-            + t1 + "\n\n" + t2
+            + t1 + "\n\n" + t2 + "\n\nD1 repeated with noise:\n\n" + t4
             + "\n\nD2, a 12 x 12 torus as a second spatial axis "
             "(EXPERIMENTAL):\n\n" + t3)
 

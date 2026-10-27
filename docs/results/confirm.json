@@ -1,0 +1,1315 @@
+{
+ "hypotheses": [
+  {
+   "alternative": "less",
+   "hi": 0.0,
+   "id": "H1",
+   "key": "A/om1/pv_relerr",
+   "lo": 0.0,
+   "mean": 0.0,
+   "null": 0.01,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at Omega 1 the pv pitch error is below 1 %",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.010358,
+   "id": "H2",
+   "key": "A/om32/pv_relerr",
+   "lo": 0.0,
+   "mean": 0.003453,
+   "null": 0.01,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at Omega 32 (inside the Euler limit) the pv error is below 1 %",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 0.982061,
+   "id": "H3",
+   "key": "A/om48/pv_relerr",
+   "lo": 0.978279,
+   "mean": 0.980201,
+   "null": 0.05,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at Omega 48 (beyond the Euler limit, below Nyquist) the pv error exceeds 5 %",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.035484,
+   "id": "H4",
+   "key": "A/sig1/pv_relerr",
+   "lo": 0.025044,
+   "mean": 0.030093,
+   "null": 0.05,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at noise 1 the pv pitch error is below 5 %",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": -0.021771,
+   "id": "H5",
+   "key": "A/sig1/diff_fft_minus_pv",
+   "lo": -0.032301,
+   "mean": -0.027009,
+   "null": 0.0,
+   "p": 1.0,
+   "p_holm": 1.0,
+   "statement": "at noise 1 the pv estimator is more accurate than the fft estimator",
+   "supported": false
+  },
+  {
+   "alternative": "greater",
+   "hi": 1.0,
+   "id": "H6",
+   "key": "B/s0/win_acc",
+   "lo": 1.0,
+   "mean": 1.0,
+   "null": 0.99,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "direction accuracy of the long-window estimator exceeds 0.99 without noise",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.595,
+   "id": "H7",
+   "key": "B/s1/last_acc",
+   "lo": 0.5475,
+   "mean": 0.57,
+   "null": 0.75,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "with noise 1 the single-reading direction accuracy is below 0.75",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 0.41,
+   "id": "H8",
+   "key": "B/s1/diff_win_minus_last",
+   "lo": 0.35,
+   "mean": 0.38,
+   "null": 0.0,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "with noise 1 the long-window estimator beats the single-reading one",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.605,
+   "id": "H9",
+   "key": "B/lockloss_a0.5/win_acc",
+   "lo": 0.5225,
+   "mean": 0.5625,
+   "null": 0.99,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "with the drive weaker than its frequency (A 0.5) direction is not recovered reliably",
+   "supported": true
+  },
+  {
+   "alternative": "two-sided",
+   "hi": 0.5375,
+   "id": "H10",
+   "key": "B/d32/sign_acc",
+   "lo": 0.44,
+   "mean": 0.4875,
+   "null": 0.5,
+   "p": 0.627937,
+   "p_holm": 1.0,
+   "statement": "at d = n/2 the gap sign is at chance (equivalence rule)",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.0,
+   "id": "H11",
+   "key": "B/d16/gap_err",
+   "lo": 0.0,
+   "mean": 0.0,
+   "null": 0.01,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at d = 16 and no noise the mean gap error is below 0.01 rad",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 0.973315,
+   "id": "H12",
+   "key": "C/undriven_coupled/coherence",
+   "lo": 0.962496,
+   "mean": 0.968039,
+   "null": 0.9,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "the undriven coupled ring still shows local coherence above 0.9",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.416168,
+   "id": "H13",
+   "key": "C/undriven_uncoupled/coherence",
+   "lo": 0.361782,
+   "mean": 0.388562,
+   "null": 0.6,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "the undriven uncoupled ring has coherence below 0.6",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.386009,
+   "id": "H14",
+   "key": "C/undriven_coupled/wave_order",
+   "lo": 0.299216,
+   "mean": 0.34266,
+   "null": 0.3,
+   "p": 0.971803,
+   "p_holm": 1.0,
+   "statement": "the undriven ring has wave-order below 0.3",
+   "supported": false
+  },
+  {
+   "alternative": "greater",
+   "hi": 0.999436,
+   "id": "H15",
+   "key": "C/corr_coh_rms",
+   "lo": 0.999267,
+   "mean": 0.999356,
+   "null": 0.9,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "audio RMS tracks coherence across noise levels (Pearson above 0.9)",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 0.990388,
+   "id": "H16",
+   "key": "C/s0/coherence",
+   "lo": 0.990388,
+   "mean": 0.990388,
+   "null": 0.98,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "driven, no noise: coherence above 0.98 (the README says 0.990)",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.0,
+   "id": "H17",
+   "key": "D1/low_speeds/abs_err",
+   "lo": 0.0,
+   "mean": 0.0,
+   "null": 0.01,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "moving-sensor shift agrees with the derivation within 0.01 rad per time unit",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 1e-06,
+   "id": "H18",
+   "key": "D1/frozen/hz",
+   "lo": 1e-06,
+   "mean": 1e-06,
+   "null": 1.0,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "at the frozen-phase speed the pitch is below 1 Hz",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 1.0,
+   "id": "H19",
+   "key": "D2/sign_acc",
+   "lo": 1.0,
+   "mean": 1.0,
+   "null": 0.99,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "three sensors on the torus recover both wave-vector signs",
+   "supported": true
+  },
+  {
+   "alternative": "less",
+   "hi": 0.0,
+   "id": "H20",
+   "key": "D2/xpair_ky_leak",
+   "lo": 0.0,
+   "mean": 0.0,
+   "null": 0.01,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "the x pair's gap does not depend on ky (difference below 0.01 rad)",
+   "supported": true
+  },
+  {
+   "alternative": "two-sided",
+   "hi": 0.503189,
+   "id": "H21",
+   "key": "F1/shuffle_acc",
+   "lo": 0.488125,
+   "mean": 0.495625,
+   "null": 0.5,
+   "p": 0.272673,
+   "p_holm": 1.0,
+   "statement": "a shuffled-phase sensor gives no direction (equivalence rule)",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 1.0,
+   "id": "H22",
+   "key": "B/audio_lag/sign_acc",
+   "lo": 1.0,
+   "mean": 1.0,
+   "null": 0.99,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "the audio-only lag gets the direction right",
+   "supported": true
+  },
+  {
+   "alternative": "greater",
+   "hi": 1.0,
+   "id": "H23",
+   "key": "B/audio_lag_reversed/flip_acc",
+   "lo": 1.0,
+   "mean": 1.0,
+   "null": 0.99,
+   "p": 0.0001,
+   "p_holm": 0.0023,
+   "statement": "time-reversed audio gives the opposite lag sign, as the design says",
+   "supported": true
+  }
+ ],
+ "meta": {
+  "ci_resamples": 5000,
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "protocol": "docs/PROTOCOL.md",
+  "python": "3.13.5",
+  "replicates": 200,
+  "seeds": [
+   5000,
+   5199
+  ],
+  "set": "confirm",
+  "synthetic": true,
+  "test_resamples": 10000,
+  "version": "0.1.0"
+ },
+ "rows": {
+  "A/n128/fft_relerr": {
+   "hi": 1e-05,
+   "lo": 1e-05,
+   "mean": 1e-05
+  },
+  "A/n128/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/n128/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/n16/fft_relerr": {
+   "hi": 1e-05,
+   "lo": 1e-05,
+   "mean": 1e-05
+  },
+  "A/n16/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/n16/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/n32/fft_relerr": {
+   "hi": 1e-05,
+   "lo": 1e-05,
+   "mean": 1e-05
+  },
+  "A/n32/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/n32/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om0.25/fft_relerr": {
+   "hi": 0.000174,
+   "lo": 0.000174,
+   "mean": 0.000174
+  },
+  "A/om0.25/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om0.25/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om0.25/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om0.5/fft_relerr": {
+   "hi": 2.3e-05,
+   "lo": 2.3e-05,
+   "mean": 2.3e-05
+  },
+  "A/om0.5/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om0.5/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om0.5/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om1/fft_relerr": {
+   "hi": 1e-05,
+   "lo": 1e-05,
+   "mean": 1e-05
+  },
+  "A/om1/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om1/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om1/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om16/fft_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om16/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om16/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om16/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om2/fft_relerr": {
+   "hi": 5e-06,
+   "lo": 5e-06,
+   "mean": 5e-06
+  },
+  "A/om2/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om2/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om2/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om32/fft_relerr": {
+   "hi": 0.010365,
+   "lo": 0.0,
+   "mean": 0.003455
+  },
+  "A/om32/pv_aided_relerr": {
+   "hi": 1.2e-05,
+   "lo": 0.0,
+   "mean": 4e-06
+  },
+  "A/om32/pv_relerr": {
+   "hi": 0.010358,
+   "lo": 0.0,
+   "mean": 0.003453
+  },
+  "A/om32/wave_order": {
+   "hi": 0.986916,
+   "lo": 0.981467,
+   "mean": 0.984237
+  },
+  "A/om4/fft_relerr": {
+   "hi": 3e-06,
+   "lo": 3e-06,
+   "mean": 3e-06
+  },
+  "A/om4/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om4/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om4/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/om48/fft_relerr": {
+   "hi": 9e-06,
+   "lo": 7e-06,
+   "mean": 8e-06
+  },
+  "A/om48/pv_aided_relerr": {
+   "hi": 0.000137,
+   "lo": 0.00011,
+   "mean": 0.000124
+  },
+  "A/om48/pv_relerr": {
+   "hi": 0.982061,
+   "lo": 0.978279,
+   "mean": 0.980201
+  },
+  "A/om48/wave_order": {
+   "hi": 0.848412,
+   "lo": 0.843729,
+   "mean": 0.846112
+  },
+  "A/om8/fft_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om8/pv_aided_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om8/pv_relerr": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "A/om8/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "A/sig0.5/diff_fft_minus_pv": {
+   "hi": -0.001115,
+   "lo": -0.001735,
+   "mean": -0.001421
+  },
+  "A/sig0.5/fft_relerr": {
+   "hi": 0.001322,
+   "lo": 0.001073,
+   "mean": 0.001198
+  },
+  "A/sig0.5/pv_aided_relerr": {
+   "hi": 0.002906,
+   "lo": 0.002348,
+   "mean": 0.002619
+  },
+  "A/sig0.5/pv_relerr": {
+   "hi": 0.002901,
+   "lo": 0.002344,
+   "mean": 0.002619
+  },
+  "A/sig0.5/wave_order": {
+   "hi": 0.972552,
+   "lo": 0.971098,
+   "mean": 0.971834
+  },
+  "A/sig1/diff_fft_minus_pv": {
+   "hi": -0.021771,
+   "lo": -0.032301,
+   "mean": -0.027009
+  },
+  "A/sig1/fft_relerr": {
+   "hi": 0.003392,
+   "lo": 0.00278,
+   "mean": 0.003085
+  },
+  "A/sig1/pv_aided_relerr": {
+   "hi": 0.035551,
+   "lo": 0.024875,
+   "mean": 0.030093
+  },
+  "A/sig1/pv_relerr": {
+   "hi": 0.035484,
+   "lo": 0.025044,
+   "mean": 0.030093
+  },
+  "A/sig1/wave_order": {
+   "hi": 0.852441,
+   "lo": 0.840957,
+   "mean": 0.84692
+  },
+  "A/sig2/diff_fft_minus_pv": {
+   "hi": -0.609685,
+   "lo": -0.660553,
+   "mean": -0.635576
+  },
+  "A/sig2/fft_relerr": {
+   "hi": 0.023762,
+   "lo": 0.007247,
+   "mean": 0.013689
+  },
+  "A/sig2/pv_aided_relerr": {
+   "hi": 0.673804,
+   "lo": 0.625222,
+   "mean": 0.649265
+  },
+  "A/sig2/pv_relerr": {
+   "hi": 0.673438,
+   "lo": 0.624838,
+   "mean": 0.649265
+  },
+  "A/sig2/wave_order": {
+   "hi": 0.425083,
+   "lo": 0.399026,
+   "mean": 0.412026
+  },
+  "B/audio_lag/err_samples": {
+   "hi": 0.00041,
+   "lo": 0.00041,
+   "mean": 0.00041
+  },
+  "B/audio_lag/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/audio_lag_reversed/flip_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/c0_s0.5/diff_win_minus_last": {
+   "hi": 0.3675,
+   "lo": 0.2975,
+   "mean": 0.3325
+  },
+  "B/c0_s0.5/last_acc": {
+   "hi": 0.5825,
+   "lo": 0.5375,
+   "mean": 0.56
+  },
+  "B/c0_s0.5/wave_order": {
+   "hi": 0.927709,
+   "lo": 0.922771,
+   "mean": 0.925358
+  },
+  "B/c0_s0.5/win_acc": {
+   "hi": 0.92,
+   "lo": 0.8625,
+   "mean": 0.8925
+  },
+  "B/d1/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d1/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d16/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d16/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d16_s0.5/gap_err": {
+   "hi": 0.030027,
+   "lo": 0.024567,
+   "mean": 0.027306
+  },
+  "B/d16_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d1_s0.5/gap_err": {
+   "hi": 0.019517,
+   "lo": 0.015857,
+   "mean": 0.017691
+  },
+  "B/d1_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d2/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d2/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d24/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d24/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d24_s0.5/gap_err": {
+   "hi": 0.031443,
+   "lo": 0.025633,
+   "mean": 0.028483
+  },
+  "B/d24_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d2_s0.5/gap_err": {
+   "hi": 0.025116,
+   "lo": 0.020244,
+   "mean": 0.022609
+  },
+  "B/d2_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d31/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d31/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d31_s0.5/gap_err": {
+   "hi": 0.032693,
+   "lo": 0.026614,
+   "mean": 0.029582
+  },
+  "B/d31_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 0.9925,
+   "mean": 0.9975
+  },
+  "B/d32/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d32/sign_acc": {
+   "hi": 0.5375,
+   "lo": 0.44,
+   "mean": 0.4875
+  },
+  "B/d32_s0.5/gap_err": {
+   "hi": 0.03096,
+   "lo": 0.025075,
+   "mean": 0.027904
+  },
+  "B/d32_s0.5/sign_acc": {
+   "hi": 0.5,
+   "lo": 0.5,
+   "mean": 0.5
+  },
+  "B/d4/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d4/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d4_s0.5/gap_err": {
+   "hi": 0.031174,
+   "lo": 0.025434,
+   "mean": 0.028224
+  },
+  "B/d4_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d8/gap_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/d8/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/d8_s0.5/gap_err": {
+   "hi": 0.033017,
+   "lo": 0.026543,
+   "mean": 0.029808
+  },
+  "B/d8_s0.5/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/lockloss_a0.5/diff_win_minus_last": {
+   "hi": 0.0425,
+   "lo": -0.0275,
+   "mean": 0.0075
+  },
+  "B/lockloss_a0.5/last_acc": {
+   "hi": 0.5975,
+   "lo": 0.5125,
+   "mean": 0.555
+  },
+  "B/lockloss_a0.5/wave_order": {
+   "hi": 0.466538,
+   "lo": 0.409153,
+   "mean": 0.438334
+  },
+  "B/lockloss_a0.5/win_acc": {
+   "hi": 0.605,
+   "lo": 0.5225,
+   "mean": 0.5625
+  },
+  "B/lockloss_a1.25/diff_win_minus_last": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/lockloss_a1.25/last_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/lockloss_a1.25/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/lockloss_a1.25/win_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/lockloss_a1/diff_win_minus_last": {
+   "hi": -0.0825,
+   "lo": -0.1625,
+   "mean": -0.1225
+  },
+  "B/lockloss_a1/last_acc": {
+   "hi": 0.96,
+   "lo": 0.9125,
+   "mean": 0.9375
+  },
+  "B/lockloss_a1/wave_order": {
+   "hi": 0.965861,
+   "lo": 0.955959,
+   "mean": 0.960901
+  },
+  "B/lockloss_a1/win_acc": {
+   "hi": 0.8475,
+   "lo": 0.78,
+   "mean": 0.815
+  },
+  "B/s0.1/diff_win_minus_last": {
+   "hi": 0.0575,
+   "lo": 0.02,
+   "mean": 0.0375
+  },
+  "B/s0.1/last_acc": {
+   "hi": 0.98,
+   "lo": 0.9425,
+   "mean": 0.9625
+  },
+  "B/s0.1/wave_order": {
+   "hi": 0.998941,
+   "lo": 0.998885,
+   "mean": 0.998914
+  },
+  "B/s0.1/win_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s0.25/diff_win_minus_last": {
+   "hi": 0.2475,
+   "lo": 0.18,
+   "mean": 0.215
+  },
+  "B/s0.25/last_acc": {
+   "hi": 0.82,
+   "lo": 0.75,
+   "mean": 0.785
+  },
+  "B/s0.25/wave_order": {
+   "hi": 0.993341,
+   "lo": 0.99299,
+   "mean": 0.993162
+  },
+  "B/s0.25/win_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s0.5/diff_win_minus_last": {
+   "hi": 0.3825,
+   "lo": 0.3175,
+   "mean": 0.35
+  },
+  "B/s0.5/last_acc": {
+   "hi": 0.6825,
+   "lo": 0.62,
+   "mean": 0.65
+  },
+  "B/s0.5/wave_order": {
+   "hi": 0.972572,
+   "lo": 0.971111,
+   "mean": 0.971838
+  },
+  "B/s0.5/win_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s0/diff_win_minus_last": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "B/s0/last_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s0/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s0/win_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "B/s1/diff_win_minus_last": {
+   "hi": 0.41,
+   "lo": 0.35,
+   "mean": 0.38
+  },
+  "B/s1/last_acc": {
+   "hi": 0.595,
+   "lo": 0.5475,
+   "mean": 0.57
+  },
+  "B/s1/wave_order": {
+   "hi": 0.852958,
+   "lo": 0.841444,
+   "mean": 0.84711
+  },
+  "B/s1/win_acc": {
+   "hi": 0.97,
+   "lo": 0.9275,
+   "mean": 0.95
+  },
+  "B/s2/diff_win_minus_last": {
+   "hi": 0.145,
+   "lo": 0.065,
+   "mean": 0.105
+  },
+  "B/s2/last_acc": {
+   "hi": 0.55,
+   "lo": 0.495,
+   "mean": 0.5225
+  },
+  "B/s2/wave_order": {
+   "hi": 0.424862,
+   "lo": 0.399227,
+   "mean": 0.412154
+  },
+  "B/s2/win_acc": {
+   "hi": 0.66,
+   "lo": 0.595,
+   "mean": 0.6275
+  },
+  "C/corr_coh_rms": {
+   "hi": 0.999436,
+   "lo": 0.999267,
+   "mean": 0.999356
+  },
+  "C/corr_coh_wave_order": {
+   "hi": 0.992926,
+   "lo": 0.989971,
+   "mean": 0.991516
+  },
+  "C/lockloss_a0.5/coherence": {
+   "hi": 0.974194,
+   "lo": 0.962612,
+   "mean": 0.968756
+  },
+  "C/lockloss_a0.5/rms": {
+   "hi": 0.690388,
+   "lo": 0.682218,
+   "mean": 0.686458
+  },
+  "C/lockloss_a0.5/wave_order": {
+   "hi": 0.457445,
+   "lo": 0.379306,
+   "mean": 0.4188
+  },
+  "C/s0.25/coherence": {
+   "hi": 0.986006,
+   "lo": 0.985765,
+   "mean": 0.985885
+  },
+  "C/s0.25/rms": {
+   "hi": 0.699562,
+   "lo": 0.698603,
+   "mean": 0.699074
+  },
+  "C/s0.25/wave_order": {
+   "hi": 0.993335,
+   "lo": 0.992982,
+   "mean": 0.993162
+  },
+  "C/s0.5/coherence": {
+   "hi": 0.97204,
+   "lo": 0.971497,
+   "mean": 0.971774
+  },
+  "C/s0.5/rms": {
+   "hi": 0.689746,
+   "lo": 0.687873,
+   "mean": 0.688792
+  },
+  "C/s0.5/wave_order": {
+   "hi": 0.972581,
+   "lo": 0.971124,
+   "mean": 0.971834
+  },
+  "C/s0/coherence": {
+   "hi": 0.990388,
+   "lo": 0.990388,
+   "mean": 0.990388
+  },
+  "C/s0/rms": {
+   "hi": 0.702592,
+   "lo": 0.702592,
+   "mean": 0.702592
+  },
+  "C/s0/wave_order": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "C/s1/coherence": {
+   "hi": 0.891891,
+   "lo": 0.888316,
+   "mean": 0.890109
+  },
+  "C/s1/rms": {
+   "hi": 0.634982,
+   "lo": 0.631453,
+   "mean": 0.633177
+  },
+  "C/s1/wave_order": {
+   "hi": 0.852503,
+   "lo": 0.840928,
+   "mean": 0.84692
+  },
+  "C/s2/coherence": {
+   "hi": 0.581068,
+   "lo": 0.576134,
+   "mean": 0.578591
+  },
+  "C/s2/rms": {
+   "hi": 0.439675,
+   "lo": 0.435457,
+   "mean": 0.437557
+  },
+  "C/s2/wave_order": {
+   "hi": 0.425137,
+   "lo": 0.398882,
+   "mean": 0.412026
+  },
+  "C/s4/coherence": {
+   "hi": 0.423039,
+   "lo": 0.420972,
+   "mean": 0.422014
+  },
+  "C/s4/rms": {
+   "hi": 0.332095,
+   "lo": 0.330085,
+   "mean": 0.331114
+  },
+  "C/s4/wave_order": {
+   "hi": 0.1451,
+   "lo": 0.124712,
+   "mean": 0.134852
+  },
+  "C/undriven_coupled/coherence": {
+   "hi": 0.973315,
+   "lo": 0.962496,
+   "mean": 0.968039
+  },
+  "C/undriven_coupled/rms": {
+   "hi": 0.691849,
+   "lo": 0.627363,
+   "mean": 0.660181
+  },
+  "C/undriven_coupled/wave_order": {
+   "hi": 0.386009,
+   "lo": 0.299216,
+   "mean": 0.34266
+  },
+  "C/undriven_coupled/winding0": {
+   "hi": 0.305,
+   "lo": 0.19,
+   "mean": 0.245
+  },
+  "C/undriven_coupled/winding_other": {
+   "hi": 0.6,
+   "lo": 0.46,
+   "mean": 0.53
+  },
+  "C/undriven_coupled/winding_plus1": {
+   "hi": 0.28,
+   "lo": 0.17,
+   "mean": 0.225
+  },
+  "C/undriven_uncoupled/coherence": {
+   "hi": 0.416168,
+   "lo": 0.361782,
+   "mean": 0.388562
+  },
+  "C/undriven_uncoupled/rms": {
+   "hi": 0.268182,
+   "lo": 0.215117,
+   "mean": 0.240817
+  },
+  "C/undriven_uncoupled/wave_order": {
+   "hi": 0.114778,
+   "lo": 0.098858,
+   "mean": 0.106698
+  },
+  "D1/frozen/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/frozen/hz": {
+   "hi": 1e-06,
+   "lo": 1e-06,
+   "mean": 1e-06
+  },
+  "D1/low_speeds/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v-0.5/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v-1/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v-2/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v0.5/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v0/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v1/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v2/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v20/abs_err": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "D1/v20/hz": {
+   "hi": 61.338023,
+   "lo": 61.338023,
+   "mean": 61.338023
+  },
+  "D1/v20/hz_want": {
+   "hi": 61.338023,
+   "lo": 61.338023,
+   "mean": 61.338023
+  },
+  "D1n/frozen/abs_err": {
+   "hi": 0.002644,
+   "lo": 0.002218,
+   "mean": 0.002429
+  },
+  "D1n/frozen/hz": {
+   "hi": 0.168557,
+   "lo": 0.141724,
+   "mean": 0.15462
+  },
+  "D1n/low_speeds/abs_err": {
+   "hi": 0.002603,
+   "lo": 0.002278,
+   "mean": 0.002434
+  },
+  "D1n/v-0.5/abs_err": {
+   "hi": 0.002499,
+   "lo": 0.00204,
+   "mean": 0.002267
+  },
+  "D1n/v-1/abs_err": {
+   "hi": 0.002544,
+   "lo": 0.002084,
+   "mean": 0.002315
+  },
+  "D1n/v-2/abs_err": {
+   "hi": 0.002787,
+   "lo": 0.002293,
+   "mean": 0.002535
+  },
+  "D1n/v0.5/abs_err": {
+   "hi": 0.002844,
+   "lo": 0.002347,
+   "mean": 0.002593
+  },
+  "D1n/v0/abs_err": {
+   "hi": 0.002907,
+   "lo": 0.002341,
+   "mean": 0.002619
+  },
+  "D1n/v1/abs_err": {
+   "hi": 0.002822,
+   "lo": 0.002244,
+   "mean": 0.002521
+  },
+  "D1n/v2/abs_err": {
+   "hi": 0.002412,
+   "lo": 0.001966,
+   "mean": 0.002189
+  },
+  "D1n/v20/abs_err": {
+   "hi": 0.002895,
+   "lo": 0.00246,
+   "mean": 0.002673
+  },
+  "D1n/v20/hz": {
+   "hi": 61.351949,
+   "lo": 61.300127,
+   "mean": 61.32594
+  },
+  "D1n/v20/hz_want": {
+   "hi": 61.338023,
+   "lo": 61.338023,
+   "mean": 61.338023
+  },
+  "D2/sign_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "D2/xpair_ky_leak": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "F1/shuffle_acc": {
+   "hi": 0.503189,
+   "lo": 0.488125,
+   "mean": 0.495625
+  },
+  "F1/unshuffled_acc": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "F2/mutant_detected": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  },
+  "F2/readonly_identical": {
+   "hi": 1.0,
+   "lo": 1.0,
+   "mean": 1.0
+  }
+ }
+}

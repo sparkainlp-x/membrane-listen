@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata in this file."
+title: "membrane-listen"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Brisson
+    given-names: Jean-François
+    orcid: https://orcid.org/0009-0000-9778-5374
+    affiliation: Spark AI NLP
+license: AGPL-3.0-only
+repository-code: https://github.com/sparkainlp-x/membrane-listen
+abstract: >-
+  SYNTHETIC sonification of a classical phase-oscillator model. A sensor
+  inside a simulated ring reads the local phase and the reading is
+  rendered as audio (cos of the phase times local coherence); heart-like
+  and brain-like scenes are pulse-arrival toys sonified as decaying
+  thumps. Includes pre-registered, seeded studies with confidence
+  intervals, including null and negative results. Not a recording, not
+  an ECG or EEG, not a medical model, not a medical device. No listening
+  test was run.
+keywords:
+  - sonification
+  - toy-model
+  - synthetic
+  - reproducible-research

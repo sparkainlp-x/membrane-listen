@@ -1,0 +1,28 @@
+{
+  "upload_type": "software",
+  "title": "membrane-listen",
+  "version": "0.1.0",
+  "description": "SYNTHETIC sonification of a classical phase-oscillator model (not a recording, not a medical model): a sensor inside a simulated ring reads the local phase and the reading is rendered as audio; heart-like and brain-like scenes are pulse-arrival toys sonified as decaying thumps. Includes pre-registered, seeded studies with confidence intervals, including null and negative results. Not a medical device, not a diagnosis. No listening test was run; nothing here is a claim about perception or physiology.",
+  "creators": [
+    {
+      "name": "Brisson, Jean-François",
+      "affiliation": "Spark AI NLP",
+      "orcid": "0009-0000-9778-5374"
+    }
+  ],
+  "license": "AGPL-3.0-only",
+  "keywords": [
+    "sonification",
+    "toy-model",
+    "synthetic",
+    "reproducible-research"
+  ],
+  "notes": "Synthetic simulation (classical software). Not a recording, not a medical model, not a medical device, not a diagnosis; nothing transfers to real physiology or perception.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/membrane-listen",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}

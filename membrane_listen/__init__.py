@@ -5,7 +5,8 @@ medical model.
 """
 
 from .core import SAMPLE_RATE, TWO_PI, Ring, Sensor, record_ring, wrap
-from .pulses import brain_signals, heart_signal, pulse_train
+from .pulses import (brain_signals, heart_signal, hop_delay_samples,
+                     pulse_train)
 from .wavio import (_to_int16, read_wav, read_wav_samples, wav_bytes,
                     write_wav_mono, write_wav_stereo)
 

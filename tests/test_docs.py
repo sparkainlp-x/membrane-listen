@@ -40,6 +40,19 @@ class TestMetadata(unittest.TestCase):
         self.assertEqual(json.loads(read(".zenodo.json"))["publication_date"],
                          "2026-10-27")
 
+    def test_zenodo_dois_are_recorded_in_the_citation_files(self):
+        version_doi = "10.5281/zenodo.23687758"
+        concept_doi = "10.5281/zenodo.23687757"
+        cff = read("CITATION.cff")
+        self.assertIn("doi: " + version_doi, cff)
+        self.assertIn("value: " + concept_doi, cff)
+        for name in ("README.md", "CHANGELOG.md"):
+            text = read(name)
+            self.assertIn(version_doi, text)
+            self.assertIn(concept_doi, text)
+        # the archive metadata is deliberately left without DOIs
+        self.assertNotIn("doi", read(".zenodo.json").lower())
+
     def test_sole_author_with_orcid_and_licence(self):
         z = json.loads(read(".zenodo.json"))
         self.assertEqual(len(z["creators"]), 1)

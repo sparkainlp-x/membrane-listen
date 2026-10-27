@@ -2,7 +2,9 @@
 
 ## 0.1.0 (2026-10-27)
 
-First release, archived on Zenodo.
+First release.
+
+Archived on Zenodo: version DOI 10.5281/zenodo.23687758, concept DOI 10.5281/zenodo.23687757.
 
 Starts from the supplied membrane-listen package (committed unchanged as
 the first commit). The six committed WAV files are byte-identical to the

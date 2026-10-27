@@ -3,19 +3,21 @@
 SYNTHETIC sonification of a phase-oscillator membrane: tones and pulse
 sounds from simulated phase. Classical, standard-library-only Python,
 seeded and reproducible. Version 0.1.0, released on GitHub on 2026-10-27
-and archived on Zenodo; the DOIs are listed under "How to cite" once the
-archive record exists.
+and archived on Zenodo. Version DOI:
+[10.5281/zenodo.23687758](https://doi.org/10.5281/zenodo.23687758).
+Concept DOI (all versions):
+[10.5281/zenodo.23687757](https://doi.org/10.5281/zenodo.23687757).
 
 Copyright (C) 2026 Jean-François Brisson (Spark AI NLP). Licensed under
 AGPL-3.0-only; the full text is in `LICENSE`.
 
 ## How to cite
 
-See `CITATION.cff`. Cite the repository URL, version 0.1.0 and the
-release tag v0.1.0 (a DOI is listed here once the Zenodo record exists).
-Jean-François Brisson, membrane-listen, version 0.1.0 (2026),
-https://github.com/sparkainlp-x/membrane-listen. SYNTHETIC software, not
-a recording and not a medical model.
+See `CITATION.cff`. Cite the archived release (version DOI
+10.5281/zenodo.23687758; concept DOI 10.5281/zenodo.23687757):
+Jean-François Brisson, membrane-listen, version 0.1.0 (2026), [SYNTHETIC
+software, not a recording and not a medical model].
+https://doi.org/10.5281/zenodo.23687758
 
 ## Honest limits (read these first)
 

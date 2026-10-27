@@ -32,7 +32,7 @@ def wrap(angle):
 
 # ---------------------------------------------------------------- ring
 class Ring:
-    """Kuramoto ring with a travelling drive (propulsion dynamics).
+    """Kuramoto ring with a travelling drive.
 
     Equation (explicit Euler, synchronous update)::
 
@@ -116,7 +116,7 @@ class Ring:
 
 # ---------------------------------------------------------------- sensor
 class Sensor:
-    """Passive, read-only vibration sensor (propulsion v0.2.0 logic).
+    """Passive, read-only vibration sensor.
 
     ``omega`` is the phase velocity between this reading and the previous
     one, wrapped into (-pi, pi] per step, so it is only meaningful while

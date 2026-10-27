@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 (prepared 2026-10-27; not released)
+## 0.1.0 (2026-10-27)
 
-No GitHub release, tag, DOI or Zenodo record has been issued.
+First release, archived on Zenodo.
 
 Starts from the supplied membrane-listen package (committed unchanged as
 the first commit). The six committed WAV files are byte-identical to the

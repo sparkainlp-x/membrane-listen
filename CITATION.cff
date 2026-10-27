@@ -3,6 +3,7 @@ message: "If you use this software, please cite it using the metadata in this fi
 title: "membrane-listen"
 type: software
 version: 0.1.0
+date-released: 2026-10-27
 authors:
   - family-names: Brisson
     given-names: Jean-François

@@ -2,6 +2,7 @@
   "upload_type": "software",
   "title": "membrane-listen",
   "version": "0.1.0",
+  "publication_date": "2026-10-27",
   "description": "SYNTHETIC sonification of a classical phase-oscillator model (not a recording, not a medical model): a sensor inside a simulated ring reads the local phase and the reading is rendered as audio; heart-like and brain-like scenes are pulse-arrival toys sonified as decaying thumps. Includes pre-registered, seeded studies with confidence intervals, including null and negative results. Not a medical device, not a diagnosis. No listening test was run; nothing here is a claim about perception or physiology.",
   "creators": [
     {

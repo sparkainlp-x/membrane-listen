@@ -1,0 +1,256 @@
+{
+ "aliasing_phase": [
+  {
+   "expected_omega": 1.0,
+   "measured_omega": 1.0,
+   "omega": 1.0,
+   "per_sample_step": 0.05
+  },
+  {
+   "expected_omega": 30.0,
+   "measured_omega": 30.0,
+   "omega": 30.0,
+   "per_sample_step": 1.5
+  },
+  {
+   "expected_omega": 60.0,
+   "measured_omega": 60.0,
+   "omega": 60.0,
+   "per_sample_step": 3.0
+  },
+  {
+   "expected_omega": 62.0,
+   "measured_omega": 62.0,
+   "omega": 62.0,
+   "per_sample_step": 3.1
+  },
+  {
+   "expected_omega": -61.663706,
+   "measured_omega": -61.663706,
+   "omega": 64.0,
+   "per_sample_step": 3.2
+  },
+  {
+   "expected_omega": -55.663706,
+   "measured_omega": -55.663706,
+   "omega": 70.0,
+   "per_sample_step": 3.5
+  },
+  {
+   "expected_omega": -25.663706,
+   "measured_omega": -25.663706,
+   "omega": 100.0,
+   "per_sample_step": 5.0
+  }
+ ],
+ "aliasing_tones": [
+  {
+   "expected_hz": 100.0,
+   "measured_hz": 100.001,
+   "true_hz": 100.0
+  },
+  {
+   "expected_hz": 1000.0,
+   "measured_hz": 1000.0,
+   "true_hz": 1000.0
+  },
+  {
+   "expected_hz": 3900.0,
+   "measured_hz": 3899.999,
+   "true_hz": 3900.0
+  },
+  {
+   "expected_hz": 3900.0,
+   "measured_hz": 3899.999,
+   "true_hz": 4100.0
+  },
+  {
+   "expected_hz": 3000.0,
+   "measured_hz": 3000.0,
+   "true_hz": 5000.0
+  },
+  {
+   "expected_hz": 100.0,
+   "measured_hz": 100.001,
+   "true_hz": 7900.0
+  },
+  {
+   "expected_hz": 100.0,
+   "measured_hz": 100.001,
+   "true_hz": 8100.0
+  }
+ ],
+ "all_pass": true,
+ "checks": {
+  "brain": [
+   {
+    "expected": 4,
+    "measured": 4,
+    "name": "brain left thump count",
+    "pass": true,
+    "tolerance": 0,
+    "unit": "thumps"
+   },
+   {
+    "expected": 4,
+    "measured": 4,
+    "name": "brain right thump count",
+    "pass": true,
+    "tolerance": 0,
+    "unit": "thumps"
+   },
+   {
+    "expected": 3440.0,
+    "measured": 3440,
+    "name": "brain left-to-right spread (first onsets)",
+    "pass": true,
+    "tolerance": 30.0,
+    "unit": "samples"
+   },
+   {
+    "expected": 0.43,
+    "measured": 0.43,
+    "name": "brain left-to-right spread",
+    "pass": true,
+    "tolerance": 0.005,
+    "unit": "s"
+   },
+   {
+    "expected": 9600.0,
+    "measured": 9600.0,
+    "name": "brain left period",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   }
+  ],
+  "heart": [
+   {
+    "expected": 5,
+    "measured": 5,
+    "name": "heart thump count",
+    "pass": true,
+    "tolerance": 0,
+    "unit": "thumps"
+   },
+   {
+    "expected": 6400.0,
+    "measured": 6400.0,
+    "name": "heart inter-onset interval (mean)",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   },
+   {
+    "expected": 0.0,
+    "measured": 8,
+    "name": "heart first onset minus nominal arrival (2560)",
+    "pass": true,
+    "tolerance": 30.0,
+    "unit": "samples"
+   },
+   {
+    "expected": 640.0,
+    "measured": 639.963342,
+    "name": "heart thump decay constant",
+    "pass": true,
+    "tolerance": 19.2,
+    "unit": "samples"
+   },
+   {
+    "expected": 55.0,
+    "measured": 55.000057,
+    "name": "heart thump fundamental (fft of first thump)",
+    "pass": true,
+    "tolerance": 2.0,
+    "unit": "Hz"
+   },
+   {
+    "expected": 0.8,
+    "measured": 0.8,
+    "name": "heart pacemaker period",
+    "pass": true,
+    "tolerance": 0.001,
+    "unit": "s"
+   }
+  ],
+  "mono waves": [
+   {
+    "expected": 63.661977,
+    "measured": 63.66196,
+    "name": "wave_forward.wav fft peak",
+    "pass": true,
+    "tolerance": 0.1,
+    "unit": "Hz"
+   },
+   {
+    "expected": 63.661977,
+    "measured": 63.661977,
+    "name": "wave_forward.wav zero-crossing rate",
+    "pass": true,
+    "tolerance": 0.1,
+    "unit": "Hz"
+   },
+   {
+    "expected": 63.661977,
+    "measured": 63.66196,
+    "name": "wave_reverse.wav fft peak",
+    "pass": true,
+    "tolerance": 0.1,
+    "unit": "Hz"
+   },
+   {
+    "expected": 63.661977,
+    "measured": 63.661978,
+    "name": "wave_reverse.wav zero-crossing rate",
+    "pass": true,
+    "tolerance": 0.1,
+    "unit": "Hz"
+   },
+   {
+    "expected": 0.0,
+    "measured": 0.0,
+    "name": "forward minus reverse peak (pitch carries no direction)",
+    "pass": true,
+    "tolerance": 0.1,
+    "unit": "Hz"
+   }
+  ],
+  "stereo waves": [
+   {
+    "expected": 31.415927,
+    "measured": 31.415866,
+    "name": "wave_stereo_forward.wav audio lag",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   },
+   {
+    "expected": -31.415927,
+    "measured": -31.415866,
+    "name": "wave_stereo_forward.wav time-reversed audio lag",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   },
+   {
+    "expected": -31.415927,
+    "measured": -31.41587,
+    "name": "wave_stereo_reverse.wav audio lag",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   },
+   {
+    "expected": 31.415927,
+    "measured": 31.41587,
+    "name": "wave_stereo_reverse.wav time-reversed audio lag",
+    "pass": true,
+    "tolerance": 1.0,
+    "unit": "samples"
+   }
+  ]
+ },
+ "n_checks": 20,
+ "synthetic": true
+}

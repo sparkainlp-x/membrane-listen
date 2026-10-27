@@ -21,10 +21,18 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Compile all sources (lint)
-        run: python -W error -m compileall -q membrane_listen scripts tests demo.py
+        run: python -W error -m compileall -q membrane_listen experiments scripts tests demo.py
       - name: Wording rules (banned words, emoji, badges, cache files)
         run: python scripts/check_text.py
       - name: Unit tests
         run: python -W error -m unittest -v
       - name: CLI builds the scenes and they match the committed WAVs
         run: python -W error -m membrane_listen --check
+      - name: WAV checks reproduce the committed file
+        run: |
+          python -W error -m experiments.wav_checks --out wav_checks.json
+          python -c "import json; a=json.load(open('wav_checks.json')); b=json.load(open('docs/results/wav_checks.json')); assert a == b, 'wav_checks.json differs'"
+      - name: Experiment smoke run (5 seeds, deterministic)
+        run: python -W error -m experiments.run_all --set smoke --out smoke.json
+      - name: Committed results render to RESULTS.md
+        run: python -m experiments.render_results --check

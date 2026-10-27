@@ -26,3 +26,5 @@ jobs:
         run: python scripts/check_text.py
       - name: Unit tests
         run: python -W error -m unittest -v
+      - name: CLI builds the scenes and they match the committed WAVs
+        run: python -W error -m membrane_listen --check
